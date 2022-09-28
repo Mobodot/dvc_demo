@@ -1,0 +1,41 @@
+schema: '2.0'
+stages:
+  one:
+    cmd: python stage_01.py
+    deps:
+    - path: stage_01.py
+      md5: 50f5486cd389aefb0b519e181c6f432d
+      size: 176
+    outs:
+    - path: one.txt
+      md5: 21bef0335963c194bf8873cd95c2af9d
+      size: 30
+  two:
+    cmd: python stage_02.py
+    deps:
+    - path: one.txt
+      md5: 21bef0335963c194bf8873cd95c2af9d
+      size: 30
+    - path: stage_02.py
+      md5: 0f0e7458e197fcd81d66a52f0a4661a7
+      size: 228
+    outs:
+    - path: two.txt
+      md5: c83249d7f6b691e10f2a01032c3ce0f4
+      size: 30
+  three:
+    cmd: python stage_03.py
+    deps:
+    - path: one.txt
+      md5: 21bef0335963c194bf8873cd95c2af9d
+      size: 30
+    - path: stage_03.py
+      md5: 675652a838a2df3042aa72e94b4c914c
+      size: 261
+    - path: two.txt
+      md5: c83249d7f6b691e10f2a01032c3ce0f4
+      size: 30
+    outs:
+    - path: three.txt
+      md5: 8ac607d0ce5d488ffec8c204bcdaee85
+      size: 32
