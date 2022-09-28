@@ -1,0 +1,22 @@
+stages:
+  one:
+    cmd: python stage_01.py
+    deps:
+      - stage_01.py
+    outs:
+      - one.txt 
+  
+  two:
+    cmd: python stage_02.py
+    deps:
+      - stage_02.py
+      - one.txt
+    outs:
+      - two.txt
+
+  three:
+    cmd: python stage_03.py
+    deps:
+      - stage_03.py
+      - two.txt
+      - one.txt
